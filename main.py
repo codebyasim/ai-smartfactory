@@ -48,5 +48,19 @@ plt.ylabel("Number of Records")
 
 plt.show()
 
+# Compare sensor averages for failed and non-failed machines
+failure_comparison = data.groupby("Machine failure")[
+    [
+        "Air temperature [K]",
+        "Process temperature [K]",
+        "Rotational speed [rpm]",
+        "Torque [Nm]",
+        "Tool wear [min]"
+    ]
+].mean()
+
+print("\nAverage sensor values by machine failure:")
+print(failure_comparison)
+
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
