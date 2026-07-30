@@ -32,6 +32,9 @@ sensor_data = data[
     ]
 ]
 
+print("\nMachine failure counts:")
+print(data["Machine failure"].value_counts())
+
 # Display basic statistics
 print("\nSensor statistics:")
 print(sensor_data.describe())
