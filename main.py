@@ -39,5 +39,14 @@ print(data["Machine failure"].value_counts())
 print("\nSensor statistics:")
 print(sensor_data.describe())
 
+# Visualise machine failures
+data["Machine failure"].value_counts().plot(kind="bar")
+
+plt.title("Machine Failure Distribution")
+plt.xlabel("Machine Failure (0 = No, 1 = Yes)")
+plt.ylabel("Number of Records")
+
+plt.show()
+
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
