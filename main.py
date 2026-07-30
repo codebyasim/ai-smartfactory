@@ -9,5 +9,32 @@ data = pd.read_csv("data/ai4i2020.csv")
 # Display the first five machines
 print(data.head())
 
+# Show the size of the dataset
+print("\nDataset size:")
+print(data.shape)
+
+# Show all column names
+print("\nColumns:")
+print(data.columns)
+
+# Check for missing values
+print("\nMissing values:")
+print(data.isnull().sum())
+
+# Select 5 important sensor columns
+sensor_data = data[
+    [
+        "Air temperature [K]",
+        "Process temperature [K]",
+        "Rotational speed [rpm]",
+        "Torque [Nm]",
+        "Tool wear [min]"
+    ]
+]
+
+# Display basic statistics
+print("\nSensor statistics:")
+print(sensor_data.describe())
+
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
