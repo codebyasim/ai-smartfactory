@@ -197,5 +197,21 @@ plt.tight_layout()
 
 plt.show()
 
+# Predict a new machine
+new_machine = pd.DataFrame(
+    [[300.5, 310.5, 1450, 55.0, 180]],
+    columns=X.columns
+)
+
+prediction = rf_model.predict(new_machine)
+
+print("\nNew Machine Prediction:")
+print("Prediction value:", prediction[0])
+
+if prediction[0] == 1:
+    print("WARNING: Machine failure predicted!")
+else:
+    print("Machine operating normally.")
+
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
