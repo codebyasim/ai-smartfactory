@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
 
 # Load manufacturing machine data
 data = pd.read_csv("data/ai4i2020.csv")
@@ -110,6 +111,18 @@ print("\nTraining features:", X_train.shape)
 print("Testing features:", X_test.shape)
 print("Training targets:", y_train.shape)
 print("Testing targets:", y_test.shape)
+
+# Create Logistic Regression model
+model = LogisticRegression(max_iter=1000)
+
+# Train the model
+model.fit(X_train, y_train)
+
+# Make predictions using test data
+y_pred = model.predict(X_test)
+
+print("\nFirst 20 predictions:")
+print(y_pred[:20])
 
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
