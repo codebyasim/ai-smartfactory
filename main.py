@@ -203,15 +203,26 @@ new_machine = pd.DataFrame(
     columns=X.columns
 )
 
-prediction = rf_model.predict(new_machine)
+# Select one real machine from the test dataset
+machine_number = 0
 
-print("\nNew Machine Prediction:")
-print("Prediction value:", prediction[0])
+actual_machine = X_test.iloc[[machine_number]]
+actual_result = y_test.iloc[machine_number]
 
-if prediction[0] == 1:
-    print("WARNING: Machine failure predicted!")
+# Predict using Random Forest
+prediction = rf_model.predict(actual_machine)
+
+print("\nReal Machine Sensor Data:")
+print(actual_machine)
+
+print("\nRandom Forest Prediction:")
+print("Predicted:", prediction[0])
+print("Actual:", actual_result)
+
+if prediction[0] == actual_result:
+    print("Prediction is CORRECT")
 else:
-    print("Machine operating normally.")
+    print("Prediction is INCORRECT")
 
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
