@@ -11,6 +11,7 @@ from sklearn.metrics import (
     f1_score,
     confusion_matrix
 )
+from sklearn.ensemble import RandomForestClassifier
 
 # Load manufacturing machine data
 data = pd.read_csv("data/ai4i2020.csv")
@@ -152,6 +153,29 @@ cm = confusion_matrix(y_test, y_pred)
 
 print("\nConfusion Matrix:")
 print(cm)
+
+# Create Random Forest model
+rf_model = RandomForestClassifier(
+    n_estimators=100,
+    class_weight="balanced",
+    random_state=42
+)
+
+# Train model
+rf_model.fit(X_train, y_train)
+
+# Make predictions
+rf_pred = rf_model.predict(X_test)
+
+# Evaluate Random Forest
+print("\nRandom Forest Evaluation:")
+print("Accuracy:", accuracy_score(y_test, rf_pred))
+print("Precision:", precision_score(y_test, rf_pred))
+print("Recall:", recall_score(y_test, rf_pred))
+print("F1 Score:", f1_score(y_test, rf_pred))
+
+print("\nRandom Forest Confusion Matrix:")
+print(confusion_matrix(y_test, rf_pred))
 
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
