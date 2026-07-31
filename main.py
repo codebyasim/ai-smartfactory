@@ -80,5 +80,22 @@ correlations = correlation_data.corr()
 print("\nCorrelation with machine failure:")
 print(correlations["Machine failure"])
 
+# Features used to predict machine failure
+X = data[
+    [
+        "Air temperature [K]",
+        "Process temperature [K]",
+        "Rotational speed [rpm]",
+        "Torque [Nm]",
+        "Tool wear [min]"
+    ]
+]
+
+# Target
+y = data["Machine failure"]
+
+print("\nFeatures shape:", X.shape)
+print("Target shape:", y.shape)
+
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
