@@ -62,5 +62,23 @@ failure_comparison = data.groupby("Machine failure")[
 print("\nAverage sensor values by machine failure:")
 print(failure_comparison)
 
+# Correlation with machine failure
+correlation_data = data[
+    [
+        "Air temperature [K]",
+        "Process temperature [K]",
+        "Rotational speed [rpm]",
+        "Torque [Nm]",
+        "Tool wear [min]",
+        "Machine failure"
+    ]
+]
+
+# Calculate correlations btween -1 and +1
+correlations = correlation_data.corr()
+
+print("\nCorrelation with machine failure:")
+print(correlations["Machine failure"])
+
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
