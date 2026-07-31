@@ -120,8 +120,11 @@ print("Testing features:", X_test.shape)
 print("Training targets:", y_train.shape)
 print("Testing targets:", y_test.shape)
 
-# Create Logistic Regression model
-model = LogisticRegression(max_iter=1000)
+# Create  Logistic Regression model
+model = LogisticRegression(
+    max_iter=1000,
+    class_weight="balanced"
+)
 
 # Train the model
 model.fit(X_train, y_train)
