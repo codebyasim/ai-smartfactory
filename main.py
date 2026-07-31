@@ -177,5 +177,14 @@ print("F1 Score:", f1_score(y_test, rf_pred))
 print("\nRandom Forest Confusion Matrix:")
 print(confusion_matrix(y_test, rf_pred))
 
+# Show feature importance
+feature_importance = pd.Series(
+    rf_model.feature_importances_,
+    index=X.columns
+).sort_values(ascending=False)
+
+print("\nRandom Forest Feature Importance:")
+print(feature_importance)
+
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
