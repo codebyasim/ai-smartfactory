@@ -12,6 +12,7 @@ from sklearn.metrics import (
     confusion_matrix
 )
 from sklearn.ensemble import RandomForestClassifier
+import joblib
 
 # Load manufacturing machine data
 data = pd.read_csv("data/ai4i2020.csv")
@@ -223,6 +224,11 @@ if prediction[0] == actual_result:
     print("Prediction is CORRECT")
 else:
     print("Prediction is INCORRECT")
+
+# Save trained Random Forest model
+joblib.dump(rf_model, "models/random_forest_model.pkl")
+
+print("\nRandom Forest model saved successfully!")
 
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
