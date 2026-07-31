@@ -97,5 +97,19 @@ y = data["Machine failure"]
 print("\nFeatures shape:", X.shape)
 print("Target shape:", y.shape)
 
+# Split data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42,
+    stratify=y
+)
+
+print("\nTraining features:", X_train.shape)
+print("Testing features:", X_test.shape)
+print("Training targets:", y_train.shape)
+print("Testing targets:", y_test.shape)
+
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
