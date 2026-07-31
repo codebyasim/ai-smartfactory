@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 # Load manufacturing machine data
 data = pd.read_csv("data/ai4i2020.csv")
@@ -123,6 +124,18 @@ y_pred = model.predict(X_test)
 
 print("\nFirst 20 predictions:")
 print(y_pred[:20])
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print("\nModel Evaluation:")
+print("Accuracy:", accuracy)
+print("Precision:", precision)
+print("Recall:", recall)
+print("F1 Score:", f1)
 
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
