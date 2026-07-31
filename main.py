@@ -186,5 +186,16 @@ feature_importance = pd.Series(
 print("\nRandom Forest Feature Importance:")
 print(feature_importance)
 
+# Plot Random Forest feature importance
+feature_importance.plot(kind="bar")
+
+plt.title("Machine Failure Feature Importance")
+plt.xlabel("Machine Sensor Features")
+plt.ylabel("Importance Score")
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+plt.show()
+
 print("SmartFactory AI")
 print("Libraries loaded successfully!")
